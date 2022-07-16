@@ -18,27 +18,14 @@ def detect(img):
     yawn_status = yawn(img)
     print("Yawn Status = " + yawn_status)
 
-    if blink_status == "Closed":
-        blink_counter = blink_counter +1
-    else:
-        blink_counter = 0
-
-    if yawn_status == "Yawn":
-        yawn_counter = yawn_counter + 1
-    else:
-        yawn_counter = 0
-
-    if yawn_counter > yawn_threshold:
-        print("Yawning")
-
-    if blink_counter > blink_threshold:
-        print("Sleepy")
-
-while True:
+for j in range(25):
     t0 = time()
 
     frame = None
     success, frame = cap.read()
+
+    filename = "./result/" + str(j) + ".jpg"
+    imwrite(filename, frame)
 
     if success:
         detect(frame)

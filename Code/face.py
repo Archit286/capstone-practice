@@ -35,8 +35,6 @@ def blink(img):
                         flag = 1
                         break
 
-    cv2.imshow("Eyes", img)
-    cv2.waitKey(0)
     if flag:
         return labels[1]
     else:
